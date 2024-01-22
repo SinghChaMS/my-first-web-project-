@@ -1,68 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  
-    <link rel="stylesheet" href="ram.css">
 
-</head>
-<body>
-<table border="1px"  height="665px" width="1475px" >
-<thead style="background-color: aquamarine;">
-    <th><img src="download.jpeg" alt="mukul"></th>
-    <th colspan="4"><h1>AJAY KUMAR GARG ENGINEERING COLLEGE</h1></th>
-</thead>
-<tbody>
-<tr>
- 
-<td style="background-color: blanchedalmond;"><center><a href="index.html">HOME</a></center></td>
-<td><center><a href="registration.html">REGISTRATION</a></center></td>
-<td><center><a href="catalogue.html">CATALOGE</a></center></td>
-<td><center><a href="login.html">LOGIN</a></center></td>
-<td><center><a href="CART.html">CART</a></center></td>
+    <link rel="stylesheet" href="ram.css" />
+  </head>
+  <body>
+    <table border="1px" height="665px" width="1475px">
+      <thead style="background-color: aquamarine">
+        <th><img src="download.jpeg" alt="mukul" /></th>
+        <th colspan="4"><h1>AJAY KUMAR GARG ENGINEERING COLLEGE</h1></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: blanchedalmond">
+            <center><a href="index.html">HOME</a></center>
+          </td>
+          <td>
+            <center><a href="registration.html">REGISTRATION</a></center>
+          </td>
+          <td>
+            <center><a href="catalogue.html">CATALOGE</a></center>
+          </td>
+          <td>
+            <center><a href="login.html">LOGIN</a></center>
+          </td>
+          <td>
+            <center><a href="CART.html">CART</a></center>
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: bisque"><center>CSE</center></td>
+          <td colspan="4" rowspan="4">
+            <center>
+              <h1>LOGIN HERE :</h1>
+            </center>
+           <form  name="submit-to-google-sheet" onsubmit=" return krishna()" action="action.html" id="kk">
+            <center>
+              <label for="name">NAME</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="please input your name......"
+                name="NAME"
+              />
+              <br /><br />
+              <label for="password">password</label>
+              <input type="text" id="password" placeholder="enter password min of 5 length" name="password" />
+              <br /><br />
+              <button >submit</button>
+              <button>reset</button>
+            </center>
+        </form>
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: aquamarine"><center>ECE</center></td>
+        </tr>
+        <tr>
+          <td style="background-color: darkgrey"><center>EEE</center></td>
+        </tr>
+        <tr>
+          <td style="background-color: mintcream"><center>CIVIL</center></td>
+        </tr>
+      </tbody>
+    </table>
 
-</tr>
-<tr>
-    <td style="background-color: bisque;"><center>CSE</center></td>
-    <td colspan="4" rowspan="4">
-
-<center>
-<h1>LOGIN HERE :</h1>
-</center>
-
-<center><label for="name">NAME</label>
-    <input type="text" id="NAME" placeholder="please input your name......">
-    <br><br>
-<label for="password">password</label>
-<input type="text" id="password" placeholder="enter password">
-<br><br>
-<button>submit</button>
-<button>reset</button>
-</center>
 
 
 
-    </td>
-</tr>
-<tr>
-    <td style="background-color: aquamarine;"><center>ECE</center></td>
+    <script>
+        function krishna(){
+        var a = document.querySelector('#name').value;
+        var b = document.querySelector('#password').value;
 
-</tr>
-<tr>
-    <td style="background-color: darkgrey;"><center>EEE</center></td>
-</tr>
-<tr>
-    <td style="background-color: mintcream;"><center>CIVIL</center></td>
-</tr>
-
-
-
-
-
-
-
-
-</tbody>
-</table>
+        if(a==''|| b==''){
+            alert('please fill all the necessary filled');
+            return false;
+        }
+        else if(b.length<5){
+            alert('enter the password of lenth min 5')
+            return false;
+        }
+        else{
+            true;
+        }
+       
+        
+    }
+    
+    </script>
+    
+      
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyVfYP3BMTDXwbajCHa5VHhB7-EEVbbi39rjjVxmCWpYuFvzvoSMczprKTWi7V_iCjs0g/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+  </body>
+</html>
